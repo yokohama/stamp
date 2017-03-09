@@ -19,10 +19,6 @@ gem 'bootstrap-sass-extras'
 gem 'coffee-rails'
 gem 'sprockets-rails'
 
-group :development do
-  gem 'sqlite3'
-end
-
 gem 'devise'
 gem 'settingslogic'
 gem 'omniauth-facebook'
@@ -30,7 +26,8 @@ gem 'seed-fu'
 
 gem 'kaminari'
 
-group :development, :test do
+group :development do
+  gem 'sqlite3'
   gem 'pry-rails'
   gem 'pry-doc'
   gem 'pry-byebug'
