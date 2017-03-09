@@ -1,0 +1,5 @@
+ja:
+  users:
+    confirmations:
+      new:
+        title: '招待メール再送信'

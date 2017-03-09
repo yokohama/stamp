@@ -1,0 +1,5 @@
+ja:
+  link:
+    forget_password: 'パスワードを忘れた方'
+    login: 'ログイン'
+    dont_receive_confirmation_instructions: 'パスワード復旧メール再送信'

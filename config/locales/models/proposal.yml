@@ -1,0 +1,8 @@
+ja:
+  activerecord:
+    models:
+      proposal: '議決案'
+    attributes:
+      proposal:
+        title: 'タイトル'
+        body: '内容'

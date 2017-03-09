@@ -1,0 +1,7 @@
+ja:
+  enumerize:
+    decision:
+      decision:
+        none: 未回答
+        ok: 賛成
+        ng: 反対

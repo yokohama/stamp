@@ -1,0 +1,36 @@
+<% content_for :command do %>
+  <ul class="nav nav-list">
+    <li><%= link_to t('.command.index'), admins_votings_path %></li>
+  </ul>
+<% end %>
+
+<div class='alert alert-info'>
+  <p><%= t('.notice.submited') %></p>
+  <p><%= "#{Submit.human_attribute_name(:created_at)} : #{@submit.created_at.to_s(:Ymd)}" %></p>
+</div>
+
+<div class="page-header">
+  <h2><center><%= @submit.voting.title %></center></h2>
+</div>
+
+<div class='well'>
+  <%= @submit.voting.description %>
+</div>
+
+<div class="page-header">
+  <h4><center><%= Proposal.model_name.human %></center></h4>
+</div>
+
+<% @submit.decisions.each do |d| %>
+  <div class='well'>
+    <div class='page-header'>
+      <h4>
+        <label class="label <%= Decision.decision_label.find_value(d.decision).value %>"><%= d.decision_text %></label>
+        &nbsp;
+        <%= d.proposal.title %>
+      </h4>
+    </div>
+    <div><%= d.proposal.body %></div>
+    <div><%= d.decision_text %></div>
+  </div>
+<% end %>

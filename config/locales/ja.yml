@@ -1,0 +1,9 @@
+ja:
+  views:
+    button:
+      login: 'ログイン'
+      logout: 'ログアウト'
+      sent: '送信'
+    link:
+      login: 'ログイン'
+      logout: 'ログアウト'

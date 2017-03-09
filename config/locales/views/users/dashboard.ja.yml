@@ -1,0 +1,7 @@
+ja:
+  users:
+    dashboard:
+      index:
+        title: 'ダッシュボード'
+        command:
+          submits: '決議書一覧'

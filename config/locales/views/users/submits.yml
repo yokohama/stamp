@@ -1,0 +1,19 @@
+ja:
+  users:
+    submits:
+      index:
+        title: '決議書一覧'
+        command:
+          index: '一覧'
+      show:
+        notice:
+          submited: 'この決議書は既に提出済みです。'
+        command:
+          index: '一覧'
+      edit:
+        command:
+          index: '一覧'
+        button:
+          decision: '提出する'
+      update:
+        notice: '決済を受け付けました'

@@ -1,0 +1,33 @@
+<% content_for :command do %>
+  <ul class="nav nav-list">
+    <li><%= link_to t('dashboard'), admins_root_path %></li>
+    <li><%= link_to t('.command.new'), new_admins_voting_path %></li>
+  </ul>
+<% end %>
+
+<div class="page-header">
+  <h2><%= t('.title') %></h2>
+</div>
+
+<table class='table table-striped'>
+  <thead>
+    <tr>
+      <th><%= Voting.human_attribute_name(:title) %></th>
+      <th><%= Voting.human_attribute_name(:created_at) %></th>
+      <th>未提出者</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @votings.each do |v| %>
+      <tr>
+        <td><%= link_to v.title, admins_voting_path(v) %></td>
+        <td><%= v.created_at.to_s(:Ymd) %></td>
+        <td>
+          <% v.unsubmit_users.each do |u| %>
+            <%= u.name %>,&nbsp;
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,34 @@
+ja:
+  admins:
+    votings:
+      index:
+        title: '決議書一覧'
+        command:
+          index: '一覧'
+          new: '決議書の作成'
+      new:
+        title: '決議書の作成'
+        command:
+          index: '一覧'
+      create:
+        admins:
+          votings:
+            notice: '決議書を作成しました。'
+      show:
+        title: ''
+        command:
+          index: '一覧'
+          new: '決議書の作成'
+          edit: '編集'
+      edit:
+        title: '決議書の編集'
+        command:
+          index: '一覧'
+          new: '決議書の作成'
+      update:
+        admins:
+          votings:
+            notice: '決議書を更新しました。'
+      form:
+        button:
+          add: '議案を追加'

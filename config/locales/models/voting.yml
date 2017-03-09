@@ -1,0 +1,11 @@
+ja:
+  activerecord:
+    models:
+      voting: '決議書'
+    attributes:
+      voting:
+        title: 'タイトル'
+        description: '本文'
+        created_at: '作成日'
+        submited_at: '提出日'
+        _destroy: '削除'

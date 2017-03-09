@@ -1,0 +1,7 @@
+ja:
+  activerecord:
+    models:
+      submit: '提出済み決議書'
+    attributes:
+      submit:
+        created_at: '提出日'

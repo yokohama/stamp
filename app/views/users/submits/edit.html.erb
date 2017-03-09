@@ -1,0 +1,35 @@
+<% content_for :command do %>
+  <ul class="nav nav-list">
+    <li><%= link_to t('.command.index'), admins_votings_path %></li>
+  </ul>
+<% end %>
+
+<div class="page-header">
+  <h2><center><%= @submit.voting.title %></center></h2>
+</div>
+
+<div class='well'>
+  <%= @submit.voting.description %>
+</div>
+
+<div class="page-header">
+  <h4><center><%= Proposal.model_name.human %></center></h4>
+</div>
+
+<%= form_for @submit, url: users_submit_path, method: :patch, html: {class: 'form-horizontal'} do |f| %>
+  <%= f.hidden_field :user_id %>
+  <%= f.hidden_field :voting_id %>
+
+  <%= f.fields_for :decisions do |d| %>
+    <div class='well'>
+      <div class='page-header'><h4><%= d.object.proposal.title %></h4></div>
+      <div class='pull-right'><%= d.select :decision, Decision.decision.options %></div>
+      <div><%= d.object.proposal.body %></div>
+    </div>
+    <%= d.hidden_field :proposal_id %>
+  <% end %>
+
+  <div>
+    <center><%= f.submit t('.button.decision'), class: 'btn btn-danger' %></center>
+  </div>
+<% end %>

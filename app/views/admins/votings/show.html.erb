@@ -1,0 +1,37 @@
+<% content_for :command do %>
+  <ul class="nav nav-list">
+    <li><%= link_to t('.command.index'), admins_votings_path %></li>
+    <li><%= link_to t('.command.new'), new_admins_voting_path %></li>
+    <li><%= link_to t('.command.edit'), edit_admins_voting_path(@voting) %></li>
+  </ul>
+<% end %>
+
+<div class="page-header">
+  <h2><center><%= @voting.title %></center></h2>
+</div>
+
+<div><%= @voting.description %></div>
+
+<div class="page-header">
+  <h4><%= Proposal.model_name.human %></h4>
+</div>
+<table class='table table-striped'>
+  <thead>
+    <tr>
+      <th><%= Proposal.human_attribute_name(:title) %></th>
+      <th><%= Proposal.human_attribute_name(:body) %></th>
+      <% Decision.decision.values.each do |d| %>
+        <th><%= Decision.decision.find_value(d).text %></th>
+      <% end %>
+    </tr>
+  </thead>
+  <% @voting.proposals.each do |p| %>
+    <tr>
+      <td width='200'><%= p.title %></td>
+      <td><%= p.body.truncate(30) %></td>
+      <% Decision.decision.values.each do |d| %>
+        <td><%= Decision.send("count_#{d}", p.id) %></td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
