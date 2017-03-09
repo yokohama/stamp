@@ -22,4 +22,8 @@ test:
 
 production:
   <<: *default
-  database: db/production.sqlite3
+  database: stamp
+  adapter: mysql2
+  encoding: utf8
+  username: root
+  password:

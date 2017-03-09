@@ -5,6 +5,7 @@ gem 'rails', '~> 5.0.1'
 
 gem 'enumerize'
 gem 'config'
+gem 'dotenv-rails'
 
 # 定番のうざいやつ
 gem 'listen'
