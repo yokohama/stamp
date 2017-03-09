@@ -10,6 +10,7 @@ gem 'dotenv-rails'
 # 定番のうざいやつ
 gem 'listen'
 gem 'uglifier'
+gem 'therubyracer'
 
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
