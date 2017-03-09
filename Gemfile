@@ -35,3 +35,8 @@ group :development do
   gem 'pry-byebug'
   gem 'pry-stack_explorer'
 end
+
+group :production do
+  gem 'mysql2'
+
+end
