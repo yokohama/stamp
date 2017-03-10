@@ -26,9 +26,8 @@
             <td><%= d.text %></td>
             <td><%= Decision.send("count_#{d}", p.id) %></td>
             <td>
-              <% Decision.send("users_#{d}", p.id).each do |u| %>
-                <%= u.name %>,&nbsp;
-              <% end %>
+              <%# Decision.send("users_#{d}", p.id).each do |u| %>
+              <%# end %>
             </td>
           </tr>
         <% end %>
