@@ -13,13 +13,37 @@
 <div><%= @voting.description %></div>
 
 <div class="page-header">
-  <h4><%= Proposal.model_name.human %></h4>
+  <h4><center><%= Proposal.model_name.human %></center></h4>
+</div>
+<% @voting.proposals.each do |p| %>
+  <div class='well'>
+    <div class="page-header">
+      <h5><%= p.title %></h5>
+      <p><%= p.body %></p>
+      <table class='table'>
+        <% Decision.decision.values.each do |d| %>
+          <tr>
+            <td><%= d.text %></td>
+            <td><%= Decision.send("count_#{d}", p.id) %></td>
+            <td>
+              <% Decision.send("users_#{d}", p.id).each do |u| %>
+                <%= u.name %>,&nbsp;
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+<% end %>
+
+<div class="page-header">
+  <h4>サマリー</h4>
 </div>
 <table class='table table-striped'>
   <thead>
     <tr>
       <th><%= Proposal.human_attribute_name(:title) %></th>
-      <th><%= Proposal.human_attribute_name(:body) %></th>
       <% Decision.decision.values.each do |d| %>
         <th><%= Decision.decision.find_value(d).text %></th>
       <% end %>
@@ -28,10 +52,32 @@
   <% @voting.proposals.each do |p| %>
     <tr>
       <td width='200'><%= p.title %></td>
-      <td><%= p.body.truncate(30) %></td>
       <% Decision.decision.values.each do |d| %>
         <td><%= Decision.send("count_#{d}", p.id) %></td>
       <% end %>
     </tr>
   <% end %>
 </table>
+
+<br />
+<br />
+<div class="page-header">
+  <h4><%= t('.delegate_description') %></h4>
+</div>
+
+<% @voting.submits.each do |s| %>
+  <div class='well'>
+    <div class="page-header">
+      <h4><%= s.user.name %> <small><%= Submit.human_attribute_name(:created_at) %> : <%= s.created_at.to_s(:Ymd) %></h4>
+    </div>
+    <p><%= Submit.human_attribute_name(:delegater) %> : <%= s.delegater %></p>
+    <table class='table table-striped'>
+      <% s.decisions.each do |d| %>
+        <tr>
+          <td><%= d.proposal.title %></td>
+          <td><%= Decision.decision.find_value(d.decision).text %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+<% end %>

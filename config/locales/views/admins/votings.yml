@@ -16,6 +16,7 @@ ja:
             notice: '決議書を作成しました。'
       show:
         title: ''
+        delegate_description: '委任内容の詳細'
         command:
           index: '一覧'
           new: '決議書の作成'

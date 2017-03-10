@@ -1,7 +1,7 @@
 ja:
   activerecord:
     models:
-      proposal: '議決案'
+      proposal: '決議事項'
     attributes:
       proposal:
         title: '議案タイトル'

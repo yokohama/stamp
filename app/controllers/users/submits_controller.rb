@@ -6,7 +6,10 @@ class Users::SubmitsController < ApplicationController
     @votings = Voting.all
     @votings.each do |v|
       submit = current_user.submits.find_by(voting_id: v.id)
-      v.submited_at = submit.created_at if submit
+      if submit
+        v.submited_at = submit.created_at
+        v.delegater = submit.delegater
+      end
     end
   end
 
@@ -35,6 +38,7 @@ class Users::SubmitsController < ApplicationController
     params.require(:submit).permit(
       :user_id,
       :voting_id,
+      :delegater,
       decisions_attributes: [:proposal_id, :decision]
     )
   end

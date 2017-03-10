@@ -1,5 +1,5 @@
 class Voting < ApplicationRecord
-  attr_accessor :submited_at
+  attr_accessor :submited_at, :delegater
 
   has_many :proposals
   accepts_nested_attributes_for :proposals, allow_destroy: true, reject_if: :valid_empty

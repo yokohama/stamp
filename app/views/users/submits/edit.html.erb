@@ -31,11 +31,23 @@
     <%= d.hidden_field :proposal_id %>
   <% end %>
 
-  <div>
-    <center>
-      <input type='checkbox' id='delegateAgreeCheckbox'/>&nbsp;
-      <b><font size='5'>agri HOLDINGSが指定した代理人に委任いたします。</font></b>
-    </center>
+  <div class="form-group">
+    <%= f.label :delegater, for: 'inputDelegater', class: 'col-sm-2 control-label' %>
+    <div class="col-sm-10">
+      <%= f.text_field :delegater, class: 'form-control', id: 'inputDelegater', 
+        placeholder: t('.placeholder.delegater', company_name: Settings.company_name) %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <div class="checkbox">
+        <label>
+          <input type='checkbox' id='delegateAgreeCheckbox'/>&nbsp;
+          <b><font color='red'><%= Submit.human_attribute_name(:agreement) %></font></b>
+        </label>
+      </div>
+    </div>
   </div>
 
   <br />

@@ -14,9 +14,15 @@ class Decision < ApplicationRecord
 
   # enumlizeで定義されているdecision毎のカウントメソッドを定義
   class << self
-    Decision.decision.values.each do |d|
-      define_method("count_#{d.to_s}") do |proposal_id|
-        self.where(proposal_id: proposal_id, decision: d).count
+    Decision.decision.values.each do |d_value|
+      define_method("count_#{d_value.to_s}") do |proposal_id|
+        self.where(proposal_id: proposal_id, decision: d_value).count
+      end
+
+      define_method("users_#{d_value.to_s}") do |proposal_id|
+        self.where(proposal_id: proposal_id, decision: d_value).collect do |d|
+          d.submit.user
+        end
       end
     end
   end

@@ -6,16 +6,16 @@
   <thead>
     <tr>
       <th><%= Voting.human_attribute_name(:title) %></th>
-      <th><%= Voting.human_attribute_name(:created_at) %></th>
       <th><%= Submit.human_attribute_name(:created_at) %></th>
+      <th><%= Submit.human_attribute_name(:delegater) %></th>
     </tr>
   </thead>
   <tbody>
     <% @votings.each do |v| %>
     <tr>
       <td><%= link_to v.title, edit_users_submit_path(v) %></td>
-      <td><%= v.created_at.to_s(:Ymd) %></td>
       <td><%= v.submited_at.to_s(:Ymd) if v.submited_at %></td>
+      <td><%= v.delegater %></td>
     </tr>
     <% end %>
   </tbody>

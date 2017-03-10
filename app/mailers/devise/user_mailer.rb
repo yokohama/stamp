@@ -5,7 +5,7 @@ class Devise::UserMailer < Devise::Mailer
   def confirmation_instructions(record, token, opts={})
     opts[:from] = "info@#{ENV['DOMAIN']}"
     opts[:reply_to] = "info@#{ENV['DOMAIN']}"
-    opts[:subject] = t('.subject')
+    opts[:subject] = t('.subject', company_name: Settings.company_name, service_name: Settings.service_name)
 
     @name = record.name
     @email = record.email
@@ -17,7 +17,7 @@ class Devise::UserMailer < Devise::Mailer
   def reset_password_instructions(record, token, opts={})
     opts[:from] = "info@#{ENV['DOMAIN']}"
     opts[:reply_to] = "info@#{ENV['DOMAIN']}"
-    opts[:subject] = t('.subject')
+    opts[:subject] = t('.subject', company_name: Settings.company_name, service_name: Settings.service_name)
 
     @email = record.email
 

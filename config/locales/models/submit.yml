@@ -5,3 +5,5 @@ ja:
     attributes:
       submit:
         created_at: '提出日'
+        delegater: '指定理人名'
+        agreement: '上記代理人に委任いたします。'

@@ -7,7 +7,7 @@ ja:
           index: '一覧'
       show:
         notice:
-          submited: 'この決議書は既に提出済みです。'
+          submited: 'この委任状は既に提出済みです。'
         command:
           index: '一覧'
       edit:
@@ -15,5 +15,7 @@ ja:
           index: '一覧'
         button:
           decision: '提出する'
+        placeholder:
+          delegater: "指定の代理人がいない場合は、%{company_name}が指定"
       update:
-        notice: '決済を受け付けました'
+        notice: '委任状を受け付けました'
