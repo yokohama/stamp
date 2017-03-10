@@ -20,9 +20,7 @@ class Decision < ApplicationRecord
       end
 
       define_method("users_#{d_value.to_s}") do |proposal_id|
-        self.where(proposal_id: proposal_id, decision: d_value).collect do |d|
-          d.submit.user
-        end
+        #TODO
       end
     end
   end
