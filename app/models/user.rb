@@ -4,9 +4,18 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :submits
-  #has_many :user_proposal
-  #has_many :proposals, through: :user_proposal, dependent: :destroy
+  before_save :set_tmp_password
 
-  #accepts_nested_attributes_for :user_proposal
+  has_many :submits
+
+  # 仮パスワードの削除
+  def delete_temp_password
+    self.update(temp_password: nil)
+  end
+
+  private
+
+  def set_tmp_password
+    self.temp_password = password
+  end
 end

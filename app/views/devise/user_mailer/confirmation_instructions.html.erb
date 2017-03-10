@@ -1,0 +1,13 @@
+<p>こんにちは、<%= @name %>さん!</p>
+
+<p>このメールはAgri HOLDINGSの株主総会オンライン決議システムへの案内状です。</p>
+
+<p><%= t('.confirm_explanation') %>
+
+<仮登録ログイン情報>
+<ul>
+  <li>ID: <%= @email %></li>
+  <li>パスワード: <%= @temp_password %></li>
+</ul>
+
+<p><%= link_to '仮登録画面へ', confirmation_url(@resource, confirmation_token: @token) %></p>

@@ -1,0 +1,6 @@
+ja:
+  devise:
+    user_mailer:
+      confirmation_instructions:
+        subject: 'agri HOLDINGS オンライン決議システムの招待状'
+        confirm_explanation: '以下のリンクをクリックして、仮登録及び本登録まで完了させてください。'
