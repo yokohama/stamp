@@ -1,3 +1,5 @@
+<%= javascript_include_tag 'users/submit' %>
+
 <% content_for :command do %>
   <ul class="nav nav-list">
     <li><%= link_to t('.command.index'), admins_votings_path %></li>
@@ -30,6 +32,16 @@
   <% end %>
 
   <div>
-    <center><%= f.submit t('.button.decision'), class: 'btn btn-danger' %></center>
+    <center>
+      <input type='checkbox' id='delegateAgreeCheckbox'/>&nbsp;
+      <b><font size='5'>agri HOLDINGSが指定した代理人に委任いたします。</font></b>
+    </center>
+  </div>
+
+  <br />
+  <br />
+
+  <div>
+    <center><%= f.submit t('.button.decision'), class: 'btn btn-danger', id: 'submit', disabled: true %></center>
   </div>
 <% end %>
