@@ -5,3 +5,7 @@ ja:
         none: 未回答
         ok: 賛成
         ng: 反対
+    user:
+      status:
+        inviting: 招待中
+        registrated: 登録済み

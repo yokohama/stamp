@@ -12,21 +12,29 @@
 <table class='table table-striped'>
   <thead>
     <tr>
-      <th><%= Voting.human_attribute_name(:name) %></th>
-      <th><%= Voting.human_attribute_name(:email) %></th>
-      <th><%= Voting.human_attribute_name(:created_at) %></th>
+      <th><%= User.human_attribute_name(:name) %></th>
+      <th><%= User.human_attribute_name(:email) %></th>
+      <th><%= User.human_attribute_name(:created_at) %></th>
+      <th><%= User.human_attribute_name(:status) %></th>
       <th></th>
     </tr>
   </thead>
   <tbody>
-    <% @users.each do |v| %>
+    <% @users.each do |u| %>
     <tr>
-      <td><%= v.name %></td>
-      <td><%= v.email %></td>
-      <td><%= v.created_at.to_s(:Ymd) %></td>
+      <td><%= u.name %></td>
+      <td><%= u.email %></td>
+      <td><%= u.created_at.to_s(:Ymd) %></td>
       <td>
-        <%= link_to t('.link.edit'), edit_admins_user_path(v) %>
-        <%= link_to t('.link.destroy'), admins_user_path(v), method: :delete %>
+        <% if u.confirmed_at %>
+          <%= User.status.registrated.text %>
+        <% else %>
+          <%= User.status.inviting.text %>
+        <% end %>
+      </td>
+      <td>
+        <%= link_to t('.link.edit'), edit_admins_user_path(u) %>
+        <%= link_to t('.link.destroy'), admins_user_path(u), method: :delete, data: {confirm: '本当に削除しますか？'} %>
       </td>
     </tr>
     <% end %>

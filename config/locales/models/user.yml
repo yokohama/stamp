@@ -2,10 +2,28 @@ ja:
   activerecord:
     models:
       user: 'ユーザー'
+
     attributes:
       user:
         name: '名前'
         email: 'メールアドレス'
         password: 'パスワード'
         password_confirmation: 'パスワード（確認用）'
+        temp_password: '仮パスワード'
         remember_me: 'パスワードを保存'
+        created_at: '招待日'
+        status: '状態'
+
+    errors:
+      models:
+        user:
+          attributes:
+            password:
+              blank: 'が空です。'
+              too_short: 'が短すぎます。'
+            password_confirmation:
+              confirmation: 'が一致していません。'
+            email:
+              blank: 'が空です。'
+            name:
+              blank: 'が空です。'

@@ -11,7 +11,15 @@ class Devise::UserMailer < Devise::Mailer
     @email = record.email
     @temp_password = record.temp_password
 
-    #record.delete_temp_password
+    super
+  end
+
+  def reset_password_instructions(record, token, opts={})
+    opts[:from] = "info@#{ENV['DOMAIN']}"
+    opts[:reply_to] = "info@#{ENV['DOMAIN']}"
+    opts[:subject] = t('.subject')
+
+    @email = record.email
 
     super
   end

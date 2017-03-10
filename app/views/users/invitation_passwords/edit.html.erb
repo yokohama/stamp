@@ -1,7 +1,9 @@
 <div class='well'>
   <h2><%= t('.title') %></h2>
+  <p><%= t('.description') %></p>
   
-  <%= form_for(current_user, url: users_invitation_password_path, html: { method: :put, class: 'form-horizontal' }) do |f| %>
+  <%= form_for(@user, url: users_invitation_password_path, html: { method: :put, class: 'form-horizontal' }) do |f| %>
+    <%= error_message(@user) %>
   
     <div class="form-group">
       <%= f.label :password, for: 'inputPassword', class: 'col-sm-2 control-label' %>

@@ -9,3 +9,11 @@ ja:
         created_at: '作成日'
         submited_at: '提出日'
         _destroy: '削除'
+    errors:
+      models:
+        voting:
+          attributes:
+            title:
+              blank: 'が空です。'
+            description:
+              blank: 'が空です。'

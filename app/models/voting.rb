@@ -6,6 +6,8 @@ class Voting < ApplicationRecord
 
   has_many :submits
 
+  validates :title, :description, presence: true
+
   def valid_empty(attributes)
     if (attributes[:title].blank? && attributes[:body].blank?)
       attributes[:_destroy] = 1

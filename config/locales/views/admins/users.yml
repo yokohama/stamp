@@ -16,7 +16,9 @@ ja:
       create:
         admins:
           votings:
-            notice: 'ユーザーを作成しました。'
+            notice: '決議書を作成しました。'
+          users:
+            notice: 'ユーザーに招待メールを送信しました。'
       edit:
         title: 'ユーザーの編集'
         command:
@@ -26,3 +28,7 @@ ja:
         admins:
           votings:
             notice: 'ユーザーを更新しました。'
+      destroy:
+        admins:
+          users:
+            notice: 'ユーザーを削除しました。'

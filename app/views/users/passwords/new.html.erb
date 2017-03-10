@@ -4,7 +4,7 @@
   <%= form_for(resource, as: resource_name, url: password_path(resource_name), 
                  html: { method: :post, class: 'form-horizontal' }) do |f| %>
 
-    <%= devise_error_messages! %>
+    <%= error_message(resource) %>
   
     <div class="form-group">
       <%= f.label :email, for: 'inputEmail', class: 'col-sm-2 control-label' %>

@@ -1,16 +1,22 @@
 class Users::InvitationPasswordsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_user, only: %w(edit update)
 
   def update
-    current_user.password_updated_at = DateTime.now
-    if current_user.update(user_params)
+    @user.password_updated_at = DateTime.now
+    if @user.update(user_params)
+      sign_in(@user, bypass: true) if current_user.id == @user.id
       redirect_to users_root_path, notice: t('.users.invitation_passwords.notice')
     else
-      redirect_to edit_users_invitation_password_path
+      render :edit
     end
   end
 
   private
+
+  def set_user
+    @user = current_user
+  end
 
   def user_params
     params.require(:user).permit(

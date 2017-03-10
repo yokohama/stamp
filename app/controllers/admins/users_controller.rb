@@ -12,6 +12,7 @@ class Admins::UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.build_password
     if  @user.save
       redirect_to admins_users_url, notice: t('.admins.users.notice')
     else
@@ -45,8 +46,7 @@ class Admins::UsersController < ApplicationController
     params.require(:user).permit(
       :name, 
       :email,
-      :password,
-      :confirmation_password
+      :temp_password
     )
   end
 end

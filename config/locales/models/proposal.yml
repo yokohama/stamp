@@ -4,5 +4,13 @@ ja:
       proposal: '議決案'
     attributes:
       proposal:
-        title: 'タイトル'
-        body: '内容'
+        title: '議案タイトル'
+        body: '議案内容'
+    errors:
+      models:
+        proposal:
+          attributes:
+            title:
+              blank: が空です。
+            body:
+              blank: が空です。
