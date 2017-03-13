@@ -7,6 +7,7 @@ gem 'puma'
 gem 'enumerize'
 gem 'config'
 gem 'dotenv-rails'
+gem 'beautiful-log'
 
 # 定番のうざいやつ
 gem 'listen'
