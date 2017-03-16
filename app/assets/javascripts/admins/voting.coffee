@@ -1,4 +1,4 @@
-@hogehoge = ->
+@add_proposal = ->
   index = $('.proposal').length
 
   #HACK: テンプレート化何かに移動して一箇所にまとめる。タイミングは入力項目が追加になった時

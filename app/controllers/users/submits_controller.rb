@@ -3,32 +3,26 @@ class Users::SubmitsController < ApplicationController
   before_action :submit_params, only: %w(update)
 
   def index
-    @votings = Voting.all
-    @votings.each do |v|
-      submit = current_user.submits.find_by(voting_id: v.id)
-      if submit
-        v.submited_at = submit.created_at
-        v.delegater = submit.delegater
-      end
-    end
+    @submits = current_user.submits.order('created_at desc')
   end
 
   def show
   end
 
   def edit
-    voting = Voting.find(params[:id])
-    @submit = make_submit(voting)
+    @submit = current_user.submits.find(params[:id])
 
-    if @submit.created_at
-      render :show
+    if @submit.submited_at.nil?
+      render :edit
     else
-      voting.proposals.each { |p| @submit.decisions.build(proposal_id: p.id) }
+      render :show
     end
   end
 
   def update
-    Submit.create(submit_params)
+    @submit = current_user.submits.find(params[:id])
+    @submit.submited_at = DateTime.now
+    @submit.update(submit_params)
     redirect_to  users_submits_path, notice: t('.notice')
   end
 
@@ -39,12 +33,7 @@ class Users::SubmitsController < ApplicationController
       :user_id,
       :voting_id,
       :delegater,
-      decisions_attributes: [:proposal_id, :decision]
+      decisions_attributes: [:id, :proposal_id, :decision]
     )
-  end
-
-  def make_submit(voting)
-    current_user.submits.find_by(voting_id: voting.id) || 
-      Submit.new(user_id: current_user.id, voting_id: voting.id)
   end
 end

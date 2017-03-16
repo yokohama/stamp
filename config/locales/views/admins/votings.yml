@@ -21,6 +21,7 @@ ja:
           index: '一覧'
           new: '決議書の作成'
           edit: '編集'
+        unsubmit: '未提出'
       edit:
         title: '決議書の編集'
         command:

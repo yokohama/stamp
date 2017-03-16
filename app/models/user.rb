@@ -10,7 +10,7 @@ class User < ApplicationRecord
 
   before_save :set_tmp_password
 
-  has_many :submits
+  has_many :submits, dependent: :destroy
 
   validates :name, presence: true
 

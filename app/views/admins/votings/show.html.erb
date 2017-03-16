@@ -2,7 +2,7 @@
   <ul class="nav nav-list">
     <li><%= link_to t('.command.index'), admins_votings_path %></li>
     <li><%= link_to t('.command.new'), new_admins_voting_path %></li>
-    <li><%= link_to t('.command.edit'), edit_admins_voting_path(@voting) %></li>
+    <!--<li><%= link_to t('.command.edit'), edit_admins_voting_path(@voting) %></li>-->
   </ul>
 <% end %>
 
@@ -67,7 +67,17 @@
 <% @voting.submits.each do |s| %>
   <div class='well'>
     <div class="page-header">
-      <h4><%= s.user.name %> <small><%= Submit.human_attribute_name(:created_at) %> : <%= s.created_at.to_s(:Ymd) %></h4>
+      <h4>
+        <%= s.user.name %> 
+        <small>
+          <%= Submit.human_attribute_name(:submited_at) %> : 
+          <% if s.submited_at? %>
+            <%= s.submited_at.to_s(:Ymd) %>
+          <% else %>
+            <label class='label label-danger'><%= t('.unsubmit') %></label>
+          <% end %>
+        </small>
+      </h4>
     </div>
     <p><%= Submit.human_attribute_name(:delegater) %> : <%= s.delegater %></p>
     <table class='table table-striped'>

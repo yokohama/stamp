@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170310085002) do
+ActiveRecord::Schema.define(version: 20170316040631) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -48,9 +48,10 @@ ActiveRecord::Schema.define(version: 20170310085002) do
   create_table "submits", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "voting_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.string   "delegater"
+    t.datetime "submited_at"
   end
 
   create_table "user_proposals", force: :cascade do |t|

@@ -7,15 +7,17 @@
     <tr>
       <th><%= Voting.human_attribute_name(:title) %></th>
       <th><%= Submit.human_attribute_name(:created_at) %></th>
+      <th><%= Submit.human_attribute_name(:submited_at) %></th>
       <th><%= Submit.human_attribute_name(:delegater) %></th>
     </tr>
   </thead>
   <tbody>
-    <% @votings.each do |v| %>
+    <% @submits.each do |s| %>
     <tr>
-      <td><%= link_to v.title, edit_users_submit_path(v) %></td>
-      <td><%= v.submited_at.to_s(:Ymd) if v.submited_at %></td>
-      <td><%= v.delegater %></td>
+      <td><%= link_to s.voting.title, edit_users_submit_path(s) %></td>
+      <td><%= s.created_at.to_s(:Ymd) %></td>
+      <td><%= s.submited_at ? s.submited_at.to_s(:Ymd) : t('.label.unsubmit') %></td>
+      <td><%= s.delegater.present? ? s.delegater : t('.label.auto') %></td>
     </tr>
     <% end %>
   </tbody>

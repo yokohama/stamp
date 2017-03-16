@@ -1,0 +1,4 @@
+ja:
+  user_mailer:
+    invite_submittion:
+      subject: '%{Settings.company_name} %{Settings.service_name}からのお知らせ!'

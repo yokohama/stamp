@@ -4,6 +4,7 @@ ja:
       submit: '提出済み決議書'
     attributes:
       submit:
-        created_at: '提出日'
-        delegater: '指定理人名'
+        delegater: '指定代理人名'
         agreement: '上記代理人に委任いたします。'
+        submited_at: '提出日'
+        created_at: '作成日'

@@ -5,11 +5,16 @@ ja:
         title: '決議書一覧'
         command:
           index: '一覧'
+        label:
+          auto: 'お任せ'
+          unsubmit: '未提出'
       show:
         notice:
           submited: 'この委任状は既に提出済みです。'
         command:
           index: '一覧'
+        label:
+          auto: 'お任せ'
       edit:
         command:
           index: '一覧'

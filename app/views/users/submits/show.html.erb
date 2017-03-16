@@ -6,7 +6,8 @@
 
 <div class='alert alert-info'>
   <p><%= t('.notice.submited') %></p>
-  <p><%= "#{Submit.human_attribute_name(:created_at)} : #{@submit.created_at.to_s(:Ymd)}" %></p>
+  <p><%= "#{Submit.human_attribute_name(:submited_at)} : #{@submit.created_at.to_s(:Ymd)}" %></p>
+  <p><%= "#{Submit.human_attribute_name(:delegater)} : #{@submit.delegater? ? @submit.delegater : t('.label.auto')}" %></p>
 </div>
 
 <div class="page-header">
