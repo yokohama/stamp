@@ -23,8 +23,8 @@
         <td><%= link_to v.title, admins_voting_path(v) %></td>
         <td><%= v.created_at.to_s(:Ymd) %></td>
         <td>
-          <% v.submits.each do |s| %>
-            <%= s.user.name %>,&nbsp;
+          <% v.unsubmit_users.each do |u| %>
+            <%= u.name %>,&nbsp;
           <% end %>
         </td>
       </tr>

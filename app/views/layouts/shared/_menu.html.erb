@@ -17,7 +17,7 @@
       <% elsif user_signed_in? %>
         <%= link_to Settings.service_name, users_root_path, class: 'navbar-brand navbar-brand-center' %>
       <% else %>
-        <%= link_to Settings.service_name, '', class: 'navbar-brand navbar-brand-center' %>
+        <%= link_to Settings.service_name, users_root_path, class: 'navbar-brand navbar-brand-center' %>
       <% end %>
     </div>
 
