@@ -1,0 +1,17 @@
+ja:
+  activerecord:
+    models:
+      group: 'グループ'
+
+    attributes:
+      group:
+        name: '名前'
+        created_at: '作成日'
+        users: 'ユーザー'
+
+    errors:
+      models:
+        group:
+          attributes:
+            name:
+              blank: 'が空です。'

@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
     resources :votings
     resources :users
+    resources :groups
   end
 
   namespace :users do

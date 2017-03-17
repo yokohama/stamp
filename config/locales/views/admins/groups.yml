@@ -1,0 +1,32 @@
+ja:
+  admins:
+    groups:
+      index:
+        title: 'グループ一覧'
+        command:
+          index: '一覧'
+          new: 'グループの作成'
+        link:
+          edit: '編集'
+          destroy: '削除'
+      new:
+        title: 'グループの作成'
+        command:
+          index: '一覧'
+      create:
+        admins:
+          groups:
+            notice: 'グループを作成しました。'
+      edit:
+        title: 'グループの編集'
+        command:
+          index: '一覧'
+          new: 'グループの作成'
+      update:
+        admins:
+          votings:
+            notice: 'グループを更新しました。'
+      destroy:
+        admins:
+          groups:
+            notice: 'グループを削除しました。'

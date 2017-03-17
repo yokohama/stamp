@@ -1,0 +1,14 @@
+<% content_for :command do %>
+  <ul class="nav nav-list">
+    <li><%= link_to t('.command.index'), admins_groups_path %></li>
+    <li><%= link_to t('.command.new'), new_admins_group_path %></li>
+  </ul>
+<% end %>
+
+<div class="page-header">
+  <h2><%= t('.title') %></h2>
+</div>
+
+<%= form_for @group, url: admins_group_path, html: {class: 'form-horizontal'} do |f| %>
+  <%= render partial: 'form', locals: { f: f } %>
+<% end %>

@@ -1,0 +1,38 @@
+<% content_for :command do %>
+  <ul class="nav nav-list">
+    <li><%= link_to t('dashboard'), admins_root_path %></li>
+    <li><%= link_to t('.command.new'), new_admins_group_path %></li>
+  </ul>
+<% end %>
+
+<div class="page-header">
+  <h2><%= t('.title') %></h2>
+</div>
+
+<table class='table table-striped'>
+  <thead>
+    <tr>
+      <th><%= Group.human_attribute_name(:name) %></th>
+      <th><%= Group.human_attribute_name(:created_at) %></th>
+      <th><%= Group.human_attribute_name(:users) %></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @groups.each do |g| %>
+    <tr>
+      <td><%= g.name %></td>
+      <td><%= g.created_at.to_s(:Ymd) %></td>
+      <td>
+        <% g.users.each do |u| %>
+          <%= u.name %>,
+        <% end %>
+      </td>
+      <td>
+        <%= link_to t('.link.edit'), edit_admins_group_path(g) %>
+        <%= link_to t('.link.destroy'), admins_group_path(g), method: :delete, data: {confirm: '本当に削除しますか？'} %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

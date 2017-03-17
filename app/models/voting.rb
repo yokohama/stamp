@@ -13,9 +13,13 @@ class Voting < ApplicationRecord
 
   private 
 
+  #
+  # proposalsのtitleとbodyがからのものは、削除フラグが立っていると同じ状況とみなす。
+  #
   def valid_empty(attributes)
     if (attributes[:title].blank? && attributes[:body].blank?)
       attributes[:_destroy] = 1
     end
   end
+
 end

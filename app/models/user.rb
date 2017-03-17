@@ -12,6 +12,9 @@ class User < ApplicationRecord
 
   has_many :submits, dependent: :destroy
 
+  has_many :user_groups, dependent: :destroy
+  has_many :groups, through: :user_groups
+
   validates :name, presence: true
 
   # 仮パスワードの削除

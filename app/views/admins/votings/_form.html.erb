@@ -17,11 +17,25 @@
 </div>
 
 <div class='form-group'>
+  <label for="checkUsers" class="col-sm-2 control-label"><%= Group.model_name.human %></label>
+  <div class="col-sm-10">
+    <% @groups.each do |g| %>
+      <label><%= radio_button_tag 'group[id]', g.id, '', {class: 'groups-radio'} %><%= g.name %>&nbsp;</label>
+    <% end %>
+  </div>
+</div>
+
+<div class='form-group'>
   <label for="checkUsers" class="col-sm-2 control-label"><%= User.model_name.human %></label>
   <div class="col-sm-10">
     <%= f.fields_for :submits do |s| %>
-      <label><%= s.check_box :user_id, {checked: false}, s.object.user.id, 0 %><%= s.object.user.name %></label>
+      <label><%= s.check_box :user_id, 
+        {checked: false, class: 'voting-user-checkbox'}, 
+        s.object.user.id, 
+        0 %><%= s.object.user.name %></label>
       &nbsp;
+      <%= hidden_field_tag "voting[submits_attributes][#{s.index}][_destroy]", 1, 
+        id: "voting_submits_attributes_#{s.index}__destroy" %>
     <% end %>
   </div>
 </div>

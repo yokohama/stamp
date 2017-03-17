@@ -14,6 +14,7 @@ ja:
         admins:
           votings:
             notice: '決議書を作成しました。'
+            error: '決議書作成に失敗しました。'
       show:
         title: ''
         delegate_description: '委任内容の詳細'

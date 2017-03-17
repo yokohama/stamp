@@ -1,3 +1,33 @@
+$ ->
+  $('.voting-user-checkbox').change ->
+    index = $(this).attr("id").replace('voting_submits_attributes_', '').replace('_user_id', '')
+    if $(this).is(':checked')
+      $("#voting_submits_attributes_#{index}__destroy").attr('value', 0)
+    else
+      $("#voting_submits_attributes_#{index}__destroy").attr('value', 1)
+
+  $('.groups-radio').change ->
+    id = $(this).attr("value")
+    url = "#{location.protocol}//#{location.host}/admins/groups/#{id}.json"
+    $.ajax({
+      type: 'GET',
+      url: url,
+      success: (data) ->
+        # チェックボックスとhiddenの初期化
+        $('.voting-user-checkbox').prop('checked', false)
+        $('.voting-user-checkbox').each (index, checkbox) ->
+          $("#voting_submits_attributes_#{index}__destroy").attr('value', 1)
+
+        # 新しいチェックで上書き
+        data.forEach (user_id) ->
+          $(".voting-user-checkbox[value=#{user_id}]").prop('checked', true)
+          index = $(".voting-user-checkbox[value=#{user_id}]").attr('id').replace('voting_submits_attributes_', '').replace('_user_id', '')
+          $("#voting_submits_attributes_#{index}__destroy").attr('value', 0)
+      error: (data) ->
+        alert '通信に失敗しました'
+    })
+    return false
+
 @add_proposal = ->
   index = $('.proposal').length
 
