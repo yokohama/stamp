@@ -6,6 +6,11 @@ $ ->
     else
       $("#voting_submits_attributes_#{index}__destroy").attr('value', 1)
 
+  $('#groupUsersClear').change ->
+    $('.voting-user-checkbox').prop('checked', false)
+    $('.voting-user-checkbox').each (index, checkbox) ->
+      $("#voting_submits_attributes_#{index}__destroy").attr('value', 1)
+
   $('.groups-radio').change ->
     id = $(this).attr("value")
     url = "#{location.protocol}//#{location.host}/admins/groups/#{id}.json"

@@ -35,3 +35,6 @@ ja:
       form:
         button:
           add: '議案を追加'
+        label:
+          group:
+            none: '指定なし'

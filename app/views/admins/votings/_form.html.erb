@@ -20,8 +20,9 @@
   <label for="checkUsers" class="col-sm-2 control-label"><%= Group.model_name.human %></label>
   <div class="col-sm-10">
     <% @groups.each do |g| %>
-      <label><%= radio_button_tag 'group[id]', g.id, '', {class: 'groups-radio'} %><%= g.name %>&nbsp;</label>
+      <label><%= radio_button_tag 'group[id]', g.id, '', {class: 'groups-radio'} %>&nbsp;<%= g.name %>&nbsp;</label>
     <% end %>
+    <label><input type='radio' id='groupUsersClear' name='group[id]' checked />&nbsp;<%= t('.label.group.none') %>&nbsp;</label>
   </div>
 </div>
 
@@ -32,7 +33,7 @@
       <label><%= s.check_box :user_id, 
         {checked: false, class: 'voting-user-checkbox'}, 
         s.object.user.id, 
-        0 %><%= s.object.user.name %></label>
+        0 %>&nbsp;<%= s.object.user.name %></label>
       &nbsp;
       <%= hidden_field_tag "voting[submits_attributes][#{s.index}][_destroy]", 1, 
         id: "voting_submits_attributes_#{s.index}__destroy" %>
